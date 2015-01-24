@@ -39,8 +39,6 @@ h1 {
 .window {
 	background-image: url("./window.png");
 	width: 400px;
-	height: 500px;
-	background-size: 100%;
 }
 
 .taskBar {
