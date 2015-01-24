@@ -1,0 +1,53 @@
+
+/*
+	Notes: 
+
+	//class selectors: "."
+
+	//id selectors: "#"
+
+	//nth-child(N):;
+
+	main font: Arial;
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+
+h1 {
+	font-size: 40pt;
+	padding: 10px;
+}
+
+.fullPage {
+	height: 100%;
+	text-align: center;
+}
+
+.footer {
+	height: 35px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgb(192,192,192);
+}
+
+.taskBar {
+	list-style-type: none;
+	height: 100%;
+}
+
+.taskBar li {
+	display: inline;
+	border: 1px dashed black;
+	height: 100%;
+}
+
+#pageOne {
+	background-image: url('./background.jpg');
+	background-size: 100%;
+}
