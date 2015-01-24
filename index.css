@@ -36,6 +36,13 @@ h1 {
 	background-color: rgb(192,192,192);
 }
 
+.window {
+	background-image: url("./window.png");
+	width: 400px;
+	height: 500px;
+	background-size: 100%;
+}
+
 .taskBar {
 	list-style-type: none;
 	height: 100%;
