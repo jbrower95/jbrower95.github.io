@@ -56,23 +56,23 @@ h1 {
 }
 .window .textbox {
 
-	background-color: white;
+	background-color: transparent;
 	text-align: left;
 	position: relative;
 	left: 12px;
 	width: 96%;
-	top: 67px;
+	top: 47px;
 	bottom: 90px;
 }
 
 .window .searchbar {
 
-	background-color: white;
+	background-color: transparent;
 	text-align: left;
 	position: relative;
 	left: 12px;
 	width: 91%;
-	top: 43px;
+	top: 24px;
 	bottom: 90px;
 }
 
