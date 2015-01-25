@@ -76,16 +76,18 @@
 				</p>
 			</div>
 
+			<div class="paintWindow" style="display: none;" id="paintWindowTemplate"></div>
+
 
 			<div class="iconLine" id="iconLineOne">
-				<div class="desktopIcon"><img src="hackbrown.png"></img><p>Brown APIs</p></img></div>
-				<div class="desktopIcon"><img src="squawk_logo.png"></img><p>Squawk<p></div>
-				<div class="desktopIcon"><img src="communikey_logo.png"></img><p>Communikey</p></div>
-				<div class="desktopIcon"><img src="tumblr_logo.png"></img><p>Tumblr</p></div>
+				<div class="desktopIcon" id="icon_hackbrown"><img src="hackbrown.png"></img><p>Brown APIs</p></img></div>
+				<div class="desktopIcon" id="icon_squawk"><img src="squawk_logo.png"></img><p>Squawk<p></div>
+				<div class="desktopIcon" id="icon_ckey"><img src="communikey_logo.png"></img><p>Communikey</p></div>
+				<div class="desktopIcon" id="icon_tumblr"><img src="tumblr_logo.png"></img><p>Tumblr</p></div>
 			</br>
 			</br>
-				<div class="desktopIcon"><img src="music_logo.png"></img><p>Music Prod.</p></img></div>
-				<div class="desktopIcon"><img src="opensource_logo.png"></img><p>Open Source<p></div>
+				<div class="desktopIcon" id="icon_music"><img src="music_logo.png"></img><p>Music Prod.</p></img></div>
+				<div class="desktopIcon" id="icon_opensource"><img src="opensource_logo.png"></img><p>Open Source<p></div>
 			</ul>
 
 			<!--<div class="iconLine" id="iconLineTwo">
@@ -94,6 +96,7 @@
 				<div class="desktopIcon"><img src="communikey_logo.png"></img><p>Communikey</p></div>
 				<div class="desktopIcon"><img src="tumblr_logo.png"></img><p>Tumblr</p></div>
 			</ul> -->
+
 			
 		<script type="text/javascript">
 			var closeButton = document.getElementById('mainWindowCloseButton');
@@ -101,6 +104,31 @@
 				var mainWindow = document.getElementById('mainWindow');
 				mainWindow.style.display = "none";
 			};
+
+			//set some icon click handlers
+			var hackbrown = document.getElementById('icon_hackbrown');
+			var squawk = document.getElementById('icon_squawk');
+			var communikey = document.getElementById('icon_ckey');
+			var tumblr = document.getElementById('icon_tumblr');
+			var music = document.getElementById('icon_music');
+			var opensource = document.getElementById('icon_opensource');
+
+			hackbrown.onclick = function() {
+
+				//open up a paint window to display our stuff in
+				var template = document.getElementById('paintWindowTemplate');
+
+				var newWindow = template.cloneNode(true);
+
+				newWindow.style.display = "block";
+				newWindow.style.left = "20";
+				newWindow.style.bottom = "100";
+				newWindow.style.zIndex = "10"
+				var mainPage = document.getElementById('pageOne');
+				mainPage.appendChild(newWindow);
+			}
+
+
 		</script>
 
 		</div>

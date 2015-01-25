@@ -50,6 +50,12 @@ h1 {
 	height: 459px;
 }
 
+.paintwindow {
+	height: 408px;
+	width: 636px;
+	background-image: url('paintwindow.png');
+}
+
 #dragbar {
 	width: 97%;
 	opacity: 0;
