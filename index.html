@@ -30,15 +30,17 @@
   			div.style.top = e.clientY + 'px';
   			div.style.left = e.clientX + 'px';
 		};
+
 		</script>
 		<div class="fullPage" id="pageOne">
 
-			<h1> Justin's website </h1>
+			<h1> Welcome! </h1>
 
 			<div class="window" id="mainWindow">
+				<div class="closeButton" id="mainWindowCloseButton"></div>
 				<div id="dragbar">This is a drag bar</div>
 				<p class="searchbar">
-					Welcome!
+					Help
 				</p>
 				<p class="textbox">
 					Click the desktop icons to see some projects i've done (or am doing currently!)
@@ -53,7 +55,13 @@
 				<div>Squawk</div>
 			</ul>
 			
-
+		<script type="text/javascript">
+			var closeButton = document.getElementById('mainWindowCloseButton');
+			closeButton.onclick = function(){
+				var mainWindow = document.getElementById('mainWindow');
+				mainWindow.style.display = "none";
+			};
+		</script>
 
 		</div>
 		<div class="footer">
@@ -65,6 +73,16 @@
 			</ul>
 
 		</div>
+
+		<script type="text/javascript">
+			var startButton = document.getElementById("startButton");
+			//set the click handler
+			startButton.onclick = function() {
+					//show the help menu
+					var helpMenu = document.getElementById('mainWindow');
+					helpMenu.style.display = "block";
+			};
+		</script>
 
 		<script src='http://code.jquery.com/jquery-1.8.3.min.js'></script>
 		<link rel="stylesheet" href="//cdn.jsdelivr.net/clippy.js/1.0/clippy.min.css">
