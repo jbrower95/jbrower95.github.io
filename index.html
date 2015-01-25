@@ -1,7 +1,7 @@
 <html>
 
 	<head>
-		<title>J's Site</title>
+		<title>jbrower95</title>
 		<link rel="stylesheet" type="text/css" href="./index.css">
 	</head>
 
@@ -76,7 +76,11 @@
 				</p>
 			</div>
 
-			<div class="paintWindow" style="display: none;" id="paintWindowTemplate"></div>
+			<div class="paintWindow" style="display: none;" id="paintWindowTemplate">
+				<div class="closeButton" id="closeButton"></div>
+				<div class="dragbar"></div>
+				<h1></h1><p></p>
+			</div>
 
 
 			<div class="iconLine" id="iconLineOne">
@@ -113,20 +117,71 @@
 			var music = document.getElementById('icon_music');
 			var opensource = document.getElementById('icon_opensource');
 
-			hackbrown.onclick = function() {
+			var selected_window = null;
 
-				//open up a paint window to display our stuff in
+			function mouseUpPaint(){
+    			window.removeEventListener('mousemove', divMovePaint, true);
+    			selected_window = null
+			};
+
+			function mouseDownPaint(e){
+  				window.addEventListener('mousemove', divMovePaint, true);
+  				selected_window = e.target.parentElement;
+			};
+
+			function divMovePaint(e){
+ 				selected_window.style.position = 'absolute';
+  				selected_window.style.top = e.clientY + 'px';
+  				selected_window.style.left = e.clientX + 'px';
+			};
+
+			function loadPaintWindow() {
 				var template = document.getElementById('paintWindowTemplate');
-
 				var newWindow = template.cloneNode(true);
-
 				newWindow.style.display = "block";
 				newWindow.style.left = "20";
 				newWindow.style.bottom = "100";
-				newWindow.style.zIndex = "10"
-				var mainPage = document.getElementById('pageOne');
-				mainPage.appendChild(newWindow);
+				newWindow.style.zIndex = "10";
+
+				//set up cancel
+				var elts = newWindow.getElementsByTagName("div");
+				var closeButton = elts[0];
+				var dragBar = elts[1];
+
+				closeButton.onclick = function(){
+					this.parentElement.parentElement.removeChild(this.parentElement);
+				}
+
+				//set up drag
+				dragBar.addEventListener('mousedown', mouseDownPaint, true);
+    			window.addEventListener('mouseup', mouseUpPaint, true);
+    				
+				return newWindow;
 			}
+
+			function addWindow(window){
+				var mainPage = document.getElementById('pageOne');
+				mainPage.appendChild(window);
+			}
+
+			function setWindowAttr(newWindow, title, caption){
+				//set the p tag to be our text
+				var ptag = newWindow.getElementsByTagName('p')[0];
+				var htag = newWindow.getElementsByTagName('h1')[0];
+				ptag.innerHTML = caption;
+				htag.innerHTML = title;
+			}
+
+			hackbrown.onclick = function() {
+
+				//open up a paint window to display our stuff in
+				var newWindow = loadPaintWindow();
+				
+				setWindowAttr(newWindow, 'Brown APIs Team - Hack@Brown', 'Over the past few months I\'ve been working with Hack@Brown and my good friend <a href=\'http://joengelm.github.io\'>Joe Engelman</a> on Brown\'s first ever API system. We\'re modernizing access to Brown University data so that anyone can build the next generation of Brown Apps. Examples of our work include an API for student account information, dining hall meals, and shuttle services.');
+
+				addWindow(newWindow);
+				
+			};
 
 
 		</script>
