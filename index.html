@@ -170,6 +170,13 @@
 				//set the p tag to be our text
 				var ptag = newWindow.getElementsByTagName('p')[0];
 				var htag = newWindow.getElementsByTagName('h1')[0];
+
+				//assign the htag and ptag a random, common color
+				var items = ["red", "blue", "green", "purple", "orange"];
+				var item = items[Math.floor(Math.random()*items.length)];
+				ptag.style.color = item;
+				htag.style.color = item;
+
 				ptag.innerHTML = caption;
 				htag.innerHTML = title;
 			}
