@@ -9,6 +9,15 @@
 	<body>
 		<script type="text/javascript">
 
+		var sendGmail = function(opts){
+    		   var str = 'http://mail.google.com/mail/?view=cm&fs=1'+
+              '&to=' + opts.to +
+              '&su=' + opts.subject +
+              '&body=' + opts.message +
+              '&ui=1';
+    		  location.href = str;
+		}
+
 		function startTime() {
     		var today = new Date();
     		var h = today.getHours();
@@ -78,11 +87,23 @@
 				</p>
 			</div>
 
+			<!-- Display prototypes for JS copying -->
 			<div class="paintWindow" style="display: none;" id="paintWindowTemplate">
 				<div class="closeButton" id="closeButton"></div>
 				<div class="dragbar"></div>
 				<h1></h1><p></p>
 			</div>
+			<div class="contactWindow" style="display: none;" id="contactWindowTemplate">
+				<div class="closeButton" id="closeButton"></div>
+				<div class="dragbar"></div>
+				<h1 class="toField">justin_brower@brown.edu</h1>
+				<form>
+					<input type="text" name="subject" value="Enter a subject" class="contactSubjectInput">
+				</form>
+				<button class="contactSubmitButton"></button>
+				<textarea></textarea>
+			</div>
+
 
 
 			<div class="iconLine" id="iconLineOne">
@@ -94,14 +115,8 @@
 			</br>
 				<div class="desktopIcon" id="icon_music"><img src="music_logo.png"></img><p>Music Prod.</p></img></div>
 				<div class="desktopIcon" id="icon_opensource"><img src="opensource_logo.png"></img><p>Open Source<p></div>
+				<div class="desktopIcon" id="icon_contact"><img src="contact_logo.png"></img><p>Contact Me<p></div>
 			</ul>
-
-			<!--<div class="iconLine" id="iconLineTwo">
-				<div class="desktopIcon"><img src="hackbrown.png"></img><p>Brown APIs</p></img></div>
-				<div class="desktopIcon"><img src="squawk_logo.png"></img><p>Squawk<p></div>
-				<div class="desktopIcon"><img src="communikey_logo.png"></img><p>Communikey</p></div>
-				<div class="desktopIcon"><img src="tumblr_logo.png"></img><p>Tumblr</p></div>
-			</ul> -->
 
 			
 		<script type="text/javascript">
@@ -118,7 +133,8 @@
 			var tumblr = document.getElementById('icon_tumblr');
 			var music = document.getElementById('icon_music');
 			var opensource = document.getElementById('icon_opensource');
-
+			var contact = document.getElementById('icon_contact');
+			
 			var selected_window = null;
 
 			function mouseUpPaint(){
@@ -137,12 +153,12 @@
   				selected_window.style.left = e.clientX + 'px';
 			};
 
-			function loadPaintWindow() {
-				var template = document.getElementById('paintWindowTemplate');
+			function loadWindowTemplate(template) {
+				var template = document.getElementById(template);
 				var newWindow = template.cloneNode(true);
 				newWindow.style.display = "block";
 				newWindow.style.left = "20";
-				newWindow.style.bottom = "100";
+				newWindow.style.top = "100";
 				newWindow.style.zIndex = "10";
 
 				//set up cancel
@@ -183,16 +199,40 @@
 
 			hackbrown.onclick = function() {
 				//open up a paint window to display our stuff in
-				var newWindow = loadPaintWindow();
+				var newWindow = loadWindowTemplate('paintWindowTemplate');
 				
 				setWindowAttr(newWindow, 'Brown APIs Team - Hack@Brown', 'Over the past few months I\'ve been working with Hack@Brown and my good friend <a href=\'http://joengelm.github.io\'>Joe Engelman</a> on Brown\'s first ever API system. We\'re modernizing access to Brown University data so that anyone can build the next generation of Brown Apps. Examples of our work include an API for student account information, dining hall meals, and shuttle services.');
 
 				addWindow(newWindow);
 			};
 
+			contact.onclick = function() {
+
+				//display a window with a textbox
+				var newWindow = loadWindowTemplate('contactWindowTemplate');
+
+				//get our button
+				var child = newWindow.getElementsByTagName("button")[0];
+				child.onclick = function(){
+					//set up an email
+
+					var subj = newWindow.getElementsByTagName("input")[0].value;
+					var msg = newWindow.getElementsByTagName("textarea")[0].value;
+
+					sendGmail({
+						to: "justin_brower@brown.edu",
+						subject: subj,
+						message: msg
+					})
+					this.parentElement.parentElement.removeChild(this.parentElement);
+				};
+
+				addWindow(newWindow);
+			}
+
 			squawk.onclick = function() {
 				//open up a paint window to display our stuff in
-				var newWindow = loadPaintWindow();
+				var newWindow = loadWindowTemplate('paintWindowTemplate');
 				
 				setWindowAttr(newWindow, 'CoFounder of Squawk', 'Last year, four friends and I won the first annual Brown Hackathon, <a href=\'http://hackatbrown.org\'>Hack@Brown</a>. We designed and wrote an application called Squawk, which allowed users to communicate with their friends via voice. We incorporated the ability to simply raise the phone to your head and speak. Unfortunately we ended our Squawking after a legal dispute with some <a href=\'https://www.squawkin.com/\'>bullies who had more money than us</a>. The memory of Squawk still lives on in our hearts.');
 
@@ -201,7 +241,7 @@
 
 			communikey.onclick = function() {
 				//open up a paint window to display our stuff in
-				var newWindow = loadPaintWindow();
+				var newWindow = loadWindowTemplate('paintWindowTemplate');
 				
 				setWindowAttr(newWindow, 'Communikey - Hyperlocal Couponing', 'I was hired by OneTinybit LLC to create an <a href=\'https://play.google.com/store/apps/developer?id=CommuniKey\'>Android application</a> for a company called <a href=\'http://http://thecommunikey.com/\'>Communikey</a>. Communikey allows students in Binghamton, NY to take advantage of deals at local restaurants and attractions. One of Communikey\'s cool features is a background service that alerts you of nearby deals.');
 
@@ -210,7 +250,7 @@
 
 			tumblr.onclick = function() {
 				//open up a paint window to display our stuff in
-				var newWindow = loadPaintWindow();
+				var newWindow = loadWindowTemplate('paintWindowTemplate');
 				
 				setWindowAttr(newWindow, 'Android Dev Intern - Tumblr', 'I\'ll be an intern on Tumblr\'s Android Team for the Summer of 2015 in the NYC office!</br>I also have a <a href=\'http://tellmewhenyouwannago.tumblr.com\'> tumblr of my own.</a>');
 
@@ -219,7 +259,7 @@
 
 			music.onclick = function() {
 				//open up a paint window to display our stuff in
-				var newWindow = loadPaintWindow();
+				var newWindow = loadWindowTemplate('paintWindowTemplate');
 				
 				setWindowAttr(newWindow, 'JDawg Sounds - Music Production', 'Music has always been a really important part of my life. Recently -- like most people who accept that they won\'t ever be a famous musician -- I\'ve taken the leap into production. I\'ve already produced more than three acts, and me and my buddies are looking to record more.</br></br>Check out my music production site <a href=\'http://jdawgsounds.com\'>here.</a>');
 
@@ -228,7 +268,7 @@
 
 			opensource.onclick = function() {
 				//open up a paint window to display our stuff in
-				var newWindow = loadPaintWindow();
+				var newWindow = loadWindowTemplate('paintWindowTemplate');
 				
 				setWindowAttr(newWindow, 'Github & Open Source', 'I really enjoy publishing things on github whenever I\'ve got the free time. Some of my notable and funny projects include a <a href=\'https://github.com/jbrower95/Python-Markov-Chain-Generator\'>markov chain generator that combines the bible and pornhub comments</a> and a <a href=\'https://github.com/jbrower95/SnapchatGroups\'>simple implementation of Snapchat Groups</a>. </br></br>Check out my <a href=\'http://github.com/jbrower95\'>Github Page</a> to find more!');
 
