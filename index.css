@@ -98,17 +98,8 @@ h1 {
 	height: 100%;
 }
 
-.desktopIcon {
-
-	width: 50px;
-	height: 60px;
-	background: white;
-}
-
 .iconLine {
 	list-style-type: none;
-	height: 70px;
-	width: 100%;
 	text-align: right;
 	position: absolute;
 	top: 20;
@@ -119,6 +110,23 @@ h1 {
 
 .iconLine div {
 	display: inline-block;
+}
+
+.desktopIcon {
+	padding-left: 10px;
+	padding-right: 10px;
+	bottom: 0;
+	position: relative;
+}
+
+.desktopIcon p {
+	bottom: 0;
+	position: relative;
+}
+.desktopIcon img {
+	margin:auto;
+	display:block;
+	padding-bottom: 5px;
 }
 
 button {
