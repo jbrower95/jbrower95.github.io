@@ -79,11 +79,36 @@ h1 {
 .taskBar {
 	list-style-type: none;
 	height: 100%;
+	left: 0;
+	text-align: left;
 }
 
 .taskBar li {
 	display: inline;
 	height: 100%;
+}
+
+.desktopIcon {
+
+	width: 50px;
+	height: 60px;
+	background: white;
+}
+
+.iconLine {
+	list-style-type: none;
+	height: 70px;
+	width: 100%;
+	text-align: right;
+	position: absolute;
+	top: 20;
+	right: 20;
+	margin: 0;
+	padding: 0;
+}
+
+.iconLine div {
+	display: inline-block;
 }
 
 button {
@@ -99,6 +124,7 @@ button {
 	box-sizing: border-box;
 	outline: none;
 }
+
 button:active {
 	border-left-color: black;
 	border-top-color: black;
