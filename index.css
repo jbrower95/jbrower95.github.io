@@ -15,6 +15,7 @@
 	margin: 0;
 	padding: 0;
 	font-family: Arial;
+	-webkit-font-smoothing: none;
 }
 
 h1 {
@@ -28,7 +29,6 @@ h1 {
 }
 
 .footer {
-	height: 35px;
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -83,8 +83,26 @@ h1 {
 
 .taskBar li {
 	display: inline;
-	border: 1px dashed black;
 	height: 100%;
+}
+
+button {
+	appearance: none;
+	border: 1px solid #6E6E6E;
+	border-left-color: white;
+	border-top-color: white;
+	background-color: #B3B3B3;
+	font-size: 12px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 5px;
+	box-sizing: border-box;
+	outline: none;
+}
+button:active {
+	border-left-color: black;
+	border-top-color: black;
+	background-color: #838383;
 }
 
 #pageOne {
