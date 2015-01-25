@@ -42,6 +42,40 @@ h1 {
 	height: 459px;
 }
 
+#dragbar {
+	width: 100%;
+	opacity: 0;
+	background-color: white;
+
+}
+
+.window {
+	position: absolute;
+	top: 100;
+	left: 100;
+}
+.window .textbox {
+
+	background-color: white;
+	text-align: left;
+	position: relative;
+	left: 12px;
+	width: 96%;
+	top: 67px;
+	bottom: 90px;
+}
+
+.window .searchbar {
+
+	background-color: white;
+	text-align: left;
+	position: relative;
+	left: 12px;
+	width: 91%;
+	top: 43px;
+	bottom: 90px;
+}
+
 .taskBar {
 	list-style-type: none;
 	height: 100%;
