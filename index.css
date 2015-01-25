@@ -36,6 +36,14 @@ h1 {
 	background-color: rgb(192,192,192);
 }
 
+#clock {
+	height: 20px;
+	float: right;
+	position: absolute;
+	bottom: 1;
+	right: 5;
+}
+
 .window {
 	background-image: url("./window.png");
 	width: 640px;
