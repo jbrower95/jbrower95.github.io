@@ -109,9 +109,20 @@ h1 {
 .iconLine {
 	list-style-type: none;
 	text-align: right;
+}
+
+#iconLineOne {
 	position: absolute;
 	top: 20;
 	right: 20;
+	margin: 0;
+	padding: 0;
+}
+
+#iconLineTwo {
+	position: absolute;
+	top: 100;
+	right: 100;
 	margin: 0;
 	padding: 0;
 }
