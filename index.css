@@ -16,6 +16,13 @@
 	padding: 0;
 	font-family: Arial;
 	-webkit-font-smoothing: none;
+	-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
 }
 
 h1 {
@@ -114,6 +121,7 @@ h1 {
 	height: 408px;
 	position: absolute;
 	width: 636px;
+	background-size: 100%;
 	background-image: url('paintwindow.png');
 }
 
