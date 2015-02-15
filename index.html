@@ -47,6 +47,9 @@
 
 		window.onload = addListeners;
 
+		var client_offset_x = 0
+		var client_offset_y = 0
+
 		function addListeners(){
     		document.getElementById('dragbar').addEventListener('mousedown', mouseDown, false);
     		window.addEventListener('mouseup', mouseUp, false);
@@ -57,14 +60,18 @@
 		};
 
 		function mouseDown(e){
+			selected_window = document.getElementById("mainWindow");
+			client_offset_x = e.pageX - selected_window.offset().offsetLeft ;
+			client_offset_y = e.pageY - selected_window.offset().offsetTop;
   			window.addEventListener('mousemove', divMove, true);
 		};
+
 
 		function divMove(e){
  			var div = document.getElementById('mainWindow');
   			div.style.position = 'absolute';
-  			div.style.top = e.clientY + 'px';
-  			div.style.left = e.clientX + 'px';
+  			div.style.top = (e.clientY - client_offset_y) + 'px';
+  			div.style.left = (e.clientX - client_offset_x) + 'px';
 		};
 
 		</script>
