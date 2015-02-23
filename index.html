@@ -328,12 +328,12 @@
 
 
         		function chaseClippy(e){
-
+        				console.log("hover called");
         				clippy_x = Math.floor(Math.random() * (screen.width - 50)) + 50;
         				clippy_y = Math.floor(Math.random() * (screen.height - 50)) + 50;
 
-        				agent.moveTo(clippy_x, clippy_y);
-        				agent.speak(clippy_phrases[Math.floor(Math.random() * clippy_phrases.length)]);
+        				clippy_agent.moveTo(clippy_x, clippy_y);
+        				clippy_agent.speak(clippy_phrases[Math.floor(Math.random() * clippy_phrases.length)]);
         			
         		}
 
