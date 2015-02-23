@@ -123,6 +123,7 @@
 				<div class="desktopIcon" id="icon_music"><img src="music_logo.png"></img><p>Music Prod.</p></img></div>
 				<div class="desktopIcon" id="icon_opensource"><img src="opensource_logo.png"></img><p>Open Source<p></div>
 				<div class="desktopIcon" id="icon_contact"><img src="contact_logo.png"></img><p>Contact Me<p></div>
+				<div class="desktopIcon" id="icon_ta"><img src="ta_logo.png"></img><p>Contact Me<p></div>
 			</ul>
 
 			
@@ -141,7 +142,7 @@
 			var music = document.getElementById('icon_music');
 			var opensource = document.getElementById('icon_opensource');
 			var contact = document.getElementById('icon_contact');
-			
+			var ta = document.getElementById("icon_ta");
 			var selected_window = null;
 
 			function mouseUpPaint(){
@@ -205,6 +206,15 @@
 				ptag.innerHTML = caption;
 				htag.innerHTML = title;
 			}
+
+			ta.onclick = function() {
+				//open up a paint window to display our stuff in
+				var newWindow = loadWindowTemplate('paintWindowTemplate');
+				
+				setWindowAttr(newWindow, 'Brown Undergrad CS TA: CS18', 'I\'m currently a TA for Brown\'s Undergrad CS department. The class I TA is <a href=\"http://cs.brown.edu/courses/cs018/\">CS18</a>. As the second part of Brown\'s introductory sequence, we cover common datastructures and algorithms (such as hashtables, lists, and kdtrees).');
+
+				addWindow(newWindow);
+			};
 
 			hackbrown.onclick = function() {
 				//open up a paint window to display our stuff in
