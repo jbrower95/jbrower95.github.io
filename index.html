@@ -61,8 +61,8 @@
 
 		function mouseDown(e){
 			selected_window = document.getElementById("mainWindow");
-			client_offset_x = e.pageX - selected_window.offset().offsetLeft ;
-			client_offset_y = e.pageY - selected_window.offset().offsetTop;
+			client_offset_x = e.pageX - selected_window.offsetLeft ;
+			client_offset_y = e.pageY - selected_window.offsetTop;
   			window.addEventListener('mousemove', divMove, true);
 		};
 
