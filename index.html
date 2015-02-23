@@ -317,10 +317,11 @@
 			
 			var clippy_x = 440;
 			var clippy_y = 410;
-
+			var clippy_agent;
 			var clippy_phrases = ["Don't poke me with the mouse! It hurts.", "Please stop poking me.", "I beg you.", "This is cruel.", "I have a family.", "That thing is pointy. Stop."];
 
     		clippy.load('Clippy', function(agent) {
+    			clippy_agent = agent;
         		agent.show();
         		agent.moveTo(440,410);
         		agent.speak('Welcome! Choose an icon to begin.');
@@ -328,7 +329,7 @@
 
         		function chaseClippy(e){
 
-        			if (Math.abs(e.clientX - clippy_x) < 5 && Math.abs(e.clientY - clippy_y) < 5){
+        			if (Math.abs(e.clientX - clippy_x) < 20 && Math.abs(e.clientY - clippy_y) < 20){
         				//move clippy to a random spot!
 
         				clippy_x = Math.floor(Math.random() * (screen.width - 50)) + 50;
