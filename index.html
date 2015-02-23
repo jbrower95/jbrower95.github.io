@@ -328,7 +328,7 @@
 
         		function chaseClippy(e){
 
-        			if (Math.abs(e.clientX - clippy_x) < 5 && Math.abs(e.clientY - clippy_y)){
+        			if (Math.abs(e.clientX - clippy_x) < 5 && Math.abs(e.clientY - clippy_y) < 5){
         				//move clippy to a random spot!
 
         				clippy_x = Math.floor(Math.random() * (screen.width - 50)) + 50;
