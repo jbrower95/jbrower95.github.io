@@ -151,9 +151,9 @@
 
 			function mouseDownPaint(e){
   				window.addEventListener('mousemove', divMovePaint, true);
+  				selected_window = e.target.parentElement;
   				client_offset_x = e.pageX - selected_window.offsetLeft ;
 				client_offset_y = e.pageY - selected_window.offsetTop;
-  				selected_window = e.target.parentElement;
 			};
 
 			function divMovePaint(e){
