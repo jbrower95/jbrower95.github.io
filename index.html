@@ -329,20 +329,15 @@
 
         		function chaseClippy(e){
 
-        			if (Math.abs(e.clientX - clippy_x) < 20 && Math.abs(e.clientY - clippy_y) < 20){
-        				//move clippy to a random spot!
-
         				clippy_x = Math.floor(Math.random() * (screen.width - 50)) + 50;
         				clippy_y = Math.floor(Math.random() * (screen.height - 50)) + 50;
 
         				agent.moveTo(clippy_x, clippy_y);
         				agent.speak(clippy_phrases[Math.floor(Math.random() * clippy_phrases.length)]);
-        			}
-
+        			
         		}
 
-
-        		window.addEventListener('mousemove', chaseClippy);
+        		$(jQuery(clippy)).hover(chaseClippy);
 
     	});
 		</script>
