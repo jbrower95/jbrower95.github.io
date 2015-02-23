@@ -248,13 +248,13 @@
 
 				addWindow(newWindow);
 
-				var newWindow = loadWindowTemplate('paintWindowTemplate');
+				var newWindow2 = loadWindowTemplate('paintWindowTemplate');
 				
-				setWindowAttr(newWindow, "Connect With Me", "View my code on <a href='https://github.com/jbrower95'>github</a> or</br>
+				setWindowAttr(newWindow2, "Connect With Me", "View my code on <a href='https://github.com/jbrower95'>github</a> or</br>
 															 View my professional aesthetic on<a href='https://www.linkedin.com/profile/view?id=317453523'> LinkedIn</a> or</br>
 															 Check out my music on <a href='https://soundcloud.com/justin-brower'>Soundcloud</a>");
 
-				addWindow(newWindow);
+				addWindow(newWindow2);
 			}
 
 			squawk.onclick = function() {
@@ -346,7 +346,6 @@
 
 
         		function chaseClippy(e){
-        				console.log("hover called");
         				clippy_x = Math.floor(Math.random() * (screen.width - 50)) + 50;
         				clippy_y = Math.floor(Math.random() * (screen.height - 50)) + 50;
 
@@ -354,9 +353,7 @@
         				clippy_agent.speak(clippy_phrases[Math.floor(Math.random() * clippy_phrases.length)]);
         			
         		}
-        		console.log("setting up hover jquery bullshit");
         		$(jQuery(agent._el)).mouseover(chaseClippy);
-        		console.log("Done");
     	});
 		</script>
 		
