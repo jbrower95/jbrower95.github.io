@@ -166,8 +166,8 @@
 				var template = document.getElementById(template);
 				var newWindow = template.cloneNode(true);
 				newWindow.style.display = "block";
-				newWindow.style.left = "20";
-				newWindow.style.top = "100";
+				newWindow.style.left = parseInt((random()*200)+30);
+				newWindow.style.top = parseInt((random()*200)+30);
 				newWindow.style.zIndex = "10";
 
 				//set up cancel
