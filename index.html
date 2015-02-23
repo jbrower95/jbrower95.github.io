@@ -314,10 +314,35 @@
 		<script src="//cdn.jsdelivr.net/clippy.js/1.0/clippy.min.js"></script>
 
 		<script type="text/javascript">
+			
+			var clippy_x = 440;
+			var clippy_y = 410;
+
+			var clippy_phrases = ["Don't poke me with the mouse! It hurts.", "Please, please stop poking me.", "I beg you.", "This is cruel."];
+
     		clippy.load('Clippy', function(agent) {
-        	agent.show();
-        	agent.moveTo(440,410);
-        	agent.speak('Welcome! Choose an icon to begin.');
+        		agent.show();
+        		agent.moveTo(440,410);
+        		agent.speak('Welcome! Choose an icon to begin.');
+
+
+        		function chaseClippy(e){
+
+        			if (Math.abs(e.clientX - clippy_x) < 5 && Math.abs(e.clientY - clippy_y)){
+        				//move clippy to a random spot!
+
+        				clippy_x = Math.floor(Math.random() * (screen.width - 50)) + 50;
+        				clippy_y = Math.floor(Math.random() * (screen.height - 50)) + 50;
+
+        				agent.moveTo(clippy_x, clippy_y);
+        				agent.speak(clippy_phrases[Math.floor(Math.random() * clippy_phrases.length)]);
+        			}
+
+        		}
+
+
+        		window.addEventListener('mousemove', chaseClippy);
+
     	});
 		</script>
 		
