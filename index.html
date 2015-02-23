@@ -336,9 +336,9 @@
         				clippy_agent.speak(clippy_phrases[Math.floor(Math.random() * clippy_phrases.length)]);
         			
         		}
-
-        		$(jQuery(clippy_agent._el)).hover(chaseClippy);
-
+        		console.log("setting up hover jquery bullshit");
+        		$(jQuery(agent._el)).mouseover(chaseClippy);
+        		console.log("Done");
     	});
 		</script>
 		
