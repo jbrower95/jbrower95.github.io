@@ -151,13 +151,15 @@
 
 			function mouseDownPaint(e){
   				window.addEventListener('mousemove', divMovePaint, true);
+  				client_offset_x = e.pageX - selected_window.offsetLeft ;
+				client_offset_y = e.pageY - selected_window.offsetTop;
   				selected_window = e.target.parentElement;
 			};
 
 			function divMovePaint(e){
  				selected_window.style.position = 'absolute';
-  				selected_window.style.top = e.clientY + 'px';
-  				selected_window.style.left = e.clientX + 'px';
+  				selected_window.style.top = (e.clientY - client_offset_y) + 'px';
+  				selected_window.style.left = (e.clientX - client_offset_x) + 'px';
 			};
 
 			function loadWindowTemplate(template) {
