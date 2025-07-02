@@ -1,0 +1,284 @@
+
+/*
+	Notes: 
+
+	//class selectors: "."
+
+	//id selectors: "#"
+
+	//nth-child(N):;
+
+	main font: Arial;
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+	-webkit-font-smoothing: none;
+	-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+}
+
+h1 {
+	font-size: 40pt;
+	padding: 10px;
+}
+
+.fullPage {
+	height: 100%;
+	text-align: center;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgb(192,192,192);
+}
+
+#clock {
+	height: 20px;
+	float: right;
+	position: absolute;
+	bottom: 1;
+	right: 5;
+}
+
+.window {
+	background-image: url("./window.png");
+	width: 640px;
+	height: 459px;
+	z-index: 0;
+}
+
+.contactWindow {
+	width: 495px;
+	height: 415px;
+	position: relative;
+	z-index: 1;
+	background-image: url('./contact_window.gif');
+}
+
+.contactWindow .toField {
+	position: relative;
+	text-align: left;
+	color: black;
+	left: 55px;
+	font-size: 12pt;
+	top: 51px;
+	width: 200px;
+	height: 2px;
+}
+
+
+.contactWindow h2 {
+
+}
+
+.contactWindow .contactSubjectInput {
+	position: relative;
+	width: 200px;
+	right: 83px;
+	top: 85px;
+	height: 16px;
+	border: none;
+}
+
+.contactWindow .contactSubmitButton {
+	position: relative;
+	left: 220px;
+	top: 20px;
+	width: 60px;
+	height: 60px;
+	background-color: transparent;
+	border: none;
+
+}
+
+.contactWindow textarea {
+	color: black;
+	padding: 5px;
+	font-family: Arial;
+	font-size: 15px;
+	border: none;
+	background-color: transparent;
+	position: relative;
+	right: 10px;
+	top: 38px;
+	width: 450px;
+	height: 235px;
+}
+
+
+.paintwindow {
+	height: 408px;
+	position: absolute;
+	width: 636px;
+	background-size: 100%;
+	background-image: url('paintwindow.png');
+}
+
+.paintwindow h1 {
+	font-family: "Comic Sans MS";
+	font-size: 18pt;
+	color: red;
+	position: relative;
+	left: 60px;
+	top: 40px;
+	width: 70%;
+	height: 30px;
+}
+
+.paintwindow p {
+	font-family: "Comic Sans MS";
+	font-size: 12pt;
+	color: red;
+	position: relative;
+	left: 80px;
+	top: 80px;
+	width: 70%;
+	height: 200px;
+}
+
+
+
+#dragbar {
+	width: 97%;
+	opacity: 0;
+	background-color: white;
+}
+
+
+.dragbar {
+	width: 97%;
+	height: 20px;
+	opacity: 1;
+	z-index: 11;
+	top: 0px;
+	left: 0px;
+	position: relative;
+}
+
+.window {
+	position: absolute;
+	top: 100;
+	left: 100;
+}
+.window .textbox {
+
+	background-color: transparent;
+	text-align: left;
+	position: relative;
+	left: 12px;
+	width: 96%;
+	top: 47px;
+	bottom: 90px;
+}
+
+.closeButton {
+
+	height: 20px;
+	width: 30px;
+	float: right;
+	top: 0px;
+	position: relative;
+	z-index: 15;
+}
+
+
+.window .searchbar {
+
+	background-color: transparent;
+	text-align: left;
+	position: relative;
+	left: 12px;
+	width: 91%;
+	top: 24px;
+	bottom: 90px;
+}
+
+.taskBar {
+	list-style-type: none;
+	height: 100%;
+	left: 0;
+	text-align: left;
+}
+
+.taskBar li {
+	display: inline;
+	height: 100%;
+}
+
+.iconLine {
+	list-style-type: none;
+	text-align: right;
+}
+
+#iconLineOne {
+	position: absolute;
+	top: 20;
+	right: 20;
+	margin: 0;
+	padding: 0;
+}
+
+#iconLineTwo {
+	position: absolute;
+	top: 100;
+	right: 100;
+	margin: 0;
+	padding: 0;
+}
+
+.iconLine div {
+	display: inline-block;
+}
+
+.desktopIcon {
+	padding-left: 10px;
+	padding-right: 10px;
+	bottom: 0;
+	position: relative;
+}
+
+.desktopIcon p {
+	bottom: 0;
+	position: relative;
+}
+.desktopIcon img {
+	margin:auto;
+	display:block;
+	padding-bottom: 5px;
+}
+
+button {
+	appearance: none;
+	border: 1px solid #6E6E6E;
+	border-left-color: white;
+	border-top-color: white;
+	background-color: #B3B3B3;
+	font-size: 12px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding: 5px;
+	box-sizing: border-box;
+	outline: none;
+}
+
+button:active {
+	border-left-color: black;
+	border-top-color: black;
+	background-color: #838383;
+}
+
+#pageOne {
+	background-image: url('./background.jpg');
+	background-size: 100%;
+}
